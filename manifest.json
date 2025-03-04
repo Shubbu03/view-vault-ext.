@@ -3,16 +3,13 @@
   "name": "View-Vault",
   "version": "1.0",
   "description": "Track yt videos even when your watch history is off",
-  "permissions": ["storage", "tabs", "activeTab"],
+  "permissions": ["storage", "tabs"],
   "host_permissions": ["*://*.youtube.com/*"],
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
   ],
   "action": {
